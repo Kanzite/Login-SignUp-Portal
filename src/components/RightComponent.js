@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 class Right extends Component {
 
@@ -33,16 +34,18 @@ class Right extends Component {
 	render() {
 
 		return(
-			<div>
-				<section className="texthead"> Sign Up </section>
-				<section className="textsubhead"> create an account to get started </section>
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" className="textinp" name="fullname" placeholder="Full Name" minLength="3" pattern="[a-zA-Z ]+" value={this.state.fullname} onChange={this.handleInputChange} required/>
-					<input type="text" className="textinp" name="username" placeholder="Username" minLength="3" pattern="[a-zA-Z0-9 ]+" value={this.state.username} onChange={this.handleInputChange} required/>
-					<input type="password" className="textinp" name="password" placeholder="Password" minLength="6" value={this.state.password} onChange={this.handleInputChange} required/>
-					<button className="buttonsubmit"> Sign Up </button>
-				</form>
-			</div>
+			<CSSTransition in={true} classNames="fademain" enter={false} exit={false} appear={true} timeout={1000}>
+				<div>
+					<section className="texthead"> Sign Up </section>
+					<section className="textsubhead"> create an account to get started </section>
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" className="textinp" name="fullname" placeholder="Full Name" minLength="3" pattern="[a-zA-Z ]+" value={this.state.fullname} onChange={this.handleInputChange} required/>
+						<input type="text" className="textinp" name="username" placeholder="Username" minLength="3" pattern="[a-zA-Z0-9 ]+" value={this.state.username} onChange={this.handleInputChange} required/>
+						<input type="password" className="textinp" name="password" placeholder="Password" minLength="6" value={this.state.password} onChange={this.handleInputChange} required/>
+						<button className="buttonsubmit"> Sign Up </button>
+					</form>
+				</div>
+			</CSSTransition>
 		);
 	}
 
